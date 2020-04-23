@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <center>
+        <h1>Olimpíada de Raciocínio Lógico</h1>
+        <h2>Lançamento</h2>
+    </center>
+        <div>
+          <form action="{% url 'core:lancamento' %}"  method="POST">
+              {% csrf_token %}
+              <label for="{{ form.problema.id_for_label }}">{{ form.problema.label }}</label>
+                   {{ form.problema }}
+              <br><br>
+              <label for="{{ form.equipe.id_for_label }}">{{ form.equipe.label }}</label>
+                   {{ form.equipe }}
+              <br><br>
+              <label for="{{ form.tempo.id_for_label }}">{{ form.tempo.label }}</label>
+                   {{ form.tempo }}
+              <br><br>
+              <label for="{{ form.status.id_for_label }}">{{ form.status.label }}</label>
+                   {{ form.status }}
+             <br><br>
+             <center>
+             <button class="btn btn-primary btn-block" type="submit">Cadastrar</button>
+           </center>
+         </form>
+       </div>
+
+      <form method="POST" action="{% url 'core:index' %}">
+          {% csrf_token %}
+          <button type="submit">Principal</button>
+      </form>
+</body>
+</html>

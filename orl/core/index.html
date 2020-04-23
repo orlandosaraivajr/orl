@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <center>
+        <h1>Olimpíada de Raciocínio Lógico</h1>
+        <h2>FHO</h2>
+    </center>
+
+    <form method="POST" action="{% url 'core:lancamento' %}">
+        {% csrf_token %}
+        <button type="submit">Lançamento</button>
+    </form>
+    <br>
+    <form method="POST" action="{% url 'core:placar_estatico' %}">
+        {% csrf_token %}
+        <button type="submit">Placar</button>
+    </form>
+    <br>
+    <form method="POST" action="{% url 'core:placar_estatico' %}">
+        {% csrf_token %}
+        <button type="submit">Placar Estático</button>
+    </form>
+</body>
+</html>

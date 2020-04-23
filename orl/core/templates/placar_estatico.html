@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <center>
+        <h1>Olimpíada de Raciocínio Lógico</h1>
+        <h2>Placar</h2>
+    </center>
+
+    <form method="POST" action="{% url 'core:index' %}">
+        {% csrf_token %}
+        <button type="submit">Principal</button>
+    </form>
+    <br>
+
+</body>
+</html>
