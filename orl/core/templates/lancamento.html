@@ -23,10 +23,35 @@
                    {{ form.status }}
              <br><br>
              <center>
-             <button class="btn btn-primary btn-block" type="submit">Cadastrar</button>
+             <button class="btn btn-primary btn-block" type="submit">Lançamento</button>
+           </center>
+         </form>
+         <br><br>
+         <form action="{% url 'core:pre_lancamento' %}"  method="POST">
+         {% csrf_token %}
+         <center>
+             <button class="btn btn-primary btn-block" type="submit">Escolher equipe/problema novamente.</button>
            </center>
          </form>
        </div>
+
+
+        {% if qs %}
+            {% for q in qs %}
+                <form method="POST" action="{% url 'core:editar_lancamento' %}">
+                    {% csrf_token %}
+                    
+                    <h3>
+                        {{ q.id }} Problema: {{ q.problema }} // Equipe:  {{ q.equipe }} 
+                        // Tempo:  {{ q.tempo }}  // Status:  {{ q.status }} 
+                        <input type="hidden" name="id_lancamento" value="{{ q.id }}" >
+                        <button type="submit">Editar</button>
+                    </h3>
+                </form>
+            {% endfor %}  
+        {% else %}
+            <h2>Nenhuma submissão desta equipe feita para este problema. </h2>
+        {% endif %} 
 
       <form method="POST" action="{% url 'core:index' %}">
           {% csrf_token %}

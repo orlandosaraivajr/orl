@@ -65,12 +65,12 @@ class PreLancamentoPostOK(TestCase):
     def test_html_template(self):
         tags = (
             ('Olimpíada de Raciocínio Lógico', 1),
-            ('Lançamento', 1),
-            ('<form', 2),
-            ('</form>', 2),
-            ('<input', 3),
+            ('Lançamento', 2),
+            ('<form', 3),
+            ('</form>', 3),
+            ('<input', 4),
             ('<select', 3),
-            ('type="submit"', 2),
+            ('type="submit"', 3),
         )
         for text, count in tags:
             with self.subTest():

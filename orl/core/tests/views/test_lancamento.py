@@ -9,7 +9,7 @@ from core.models import (
 
 view_in_test = 'core:lancamento'
 template_get_case = 'index.html'
-template_post_in_ok_case = 'index.html'
+template_post_in_ok_case = 'pre_lancamento.html'
 template_post_in_fail_case = 'lancamento.html'
 
 

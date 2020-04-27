@@ -5,11 +5,12 @@
 <body>
     <center>
         <h1>Olimpíada de Raciocínio Lógico</h1>
-        <h2>Pré-Lançamento</h2>
+        <h2>Editar Lançamento</h2>
     </center>
         <div>
-          <form action="{% url 'core:pre_lancamento' %}" novalidate method="POST">
+          <form action="{% url 'core:editar_lancamento' %}" novalidate method="POST">
               {% csrf_token %}
+              <input type="hidden" name="id_lancamento" value="{{ id_lancamento }}" >
               <label for="{{ form.problema.id_for_label }}">{{ form.problema.label }}</label>
                    {{ form.problema }}
               <br><br>
@@ -23,7 +24,7 @@
                    {{ form.status }}
              <br><br>
              <center>
-             <button class="btn btn-primary btn-block" type="submit">Proseguir com lançamento</button>
+             <button class="btn btn-primary btn-block" type="submit">Editar lançamento</button>
            </center>
          </form>
        </div>
