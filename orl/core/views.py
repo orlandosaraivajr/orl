@@ -59,5 +59,18 @@ def editar_lancamento(request):
         return render(request, 'editar_lancamento.html', context)
 
 
+def remover_lancamento(request):
+    if request.method == 'GET':
+        return render(request, 'index.html')
+    try:
+        id_lancamento = request.POST.get('id_lancamento', '')
+        vitima = SubmissaoModel.objects.get(pk=id_lancamento)
+        vitima.delete()
+        context = {'form': PreSubmissaoForm()}
+    except SubmissaoModel.DoesNotExist:
+        context = {'form': PreSubmissaoForm(), 'id_lancamento': id_lancamento}
+    return render(request, 'pre_lancamento.html', context)
+
+
 def placar_estatico(request):
     return render(request, 'placar_estatico.html')

@@ -38,6 +38,9 @@
 
         {% if qs %}
             {% for q in qs %}
+            <table>
+            <tr>
+               <td>
                 <form method="POST" action="{% url 'core:editar_lancamento' %}">
                     {% csrf_token %}
                     
@@ -48,9 +51,21 @@
                         <button type="submit">Editar</button>
                     </h3>
                 </form>
+               </td>
+               <td>
+                <form method="POST" action="{% url 'core:remover_lancamento' %}">
+                    {% csrf_token %}
+                    <h3>
+                        <input type="hidden" name="id_lancamento" value="{{ q.id }}" >
+                        <button type="submit">Remover</button>
+                    </h3>
+                </form>
+               </td>
+             </tr>
+            </table>
             {% endfor %}  
         {% else %}
-            <h2>Nenhuma submissão desta equipe feita para este problema. </h2>
+            <h3>Nenhuma submissão desta equipe feita para este problema. </h3>
         {% endif %} 
 
       <form method="POST" action="{% url 'core:index' %}">

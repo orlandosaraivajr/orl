@@ -11,6 +11,8 @@ urlpatterns = [
          views.lancamento, name='lancamento'),
     path('editar_lancamento/',
          views.editar_lancamento, name='editar_lancamento'),
+    path('remover_lancamento/',
+         views.remover_lancamento, name='remover_lancamento'),
     path('placar_estatico/',
          views.placar_estatico, name='placar_estatico'),
 ]
