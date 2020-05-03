@@ -40,3 +40,7 @@ class SubmissaoModelTest(TestCase):
     def test_tempo(self):
         tempo = self.cadastro.__dict__.get('tempo', '')
         self.assertEqual(tempo, 20)
+
+    def test_get_punicao(self):
+        tempo_punicao = self.cadastro.get_punicao()
+        self.assertEqual(tempo_punicao, 10)

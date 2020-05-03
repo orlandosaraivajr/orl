@@ -8,6 +8,79 @@
         <h2>Placar</h2>
     </center>
 
+    {% if equipes %}
+            <table border='1'>
+            {% for equipe in equipes %}
+            <tr>
+               <td>
+                    <h3>
+                        {{ equipe.equipe }} 
+                    </h3>
+               </td>
+               <td>
+                    <h3>
+                        {{ equipe.problema1 }} 
+                    </h3>
+               </td>
+               <td>
+                    <h3>
+                        {{ equipe.problema2 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema3 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema4 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema5 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema6 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema7 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema8 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema9 }} 
+                    </h3>
+               </td>
+                <td>
+                    <h3>
+                        {{ equipe.problema10 }} 
+                    </h3>
+               </td>
+
+               <td>
+                    <h3>
+                        {{ equipe.soma }} 
+                    </h3>
+               </td>
+            </tr>
+            {% endfor %}
+            </table>  
+    {% else %}
+            <h3>Nenhuma pontuação registrada. </h3>
+    {% endif %} 
+    
+    <BR><BR>
     <form method="POST" action="{% url 'core:index' %}">
         {% csrf_token %}
         <button type="submit">Principal</button>

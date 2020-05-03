@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from core.forms import SubmissaoForm, PreSubmissaoForm
 from core.models import SubmissaoModel
+from core.logic import Placar
 
 
 def index(request):
@@ -73,4 +74,7 @@ def remover_lancamento(request):
 
 
 def placar_estatico(request):
-    return render(request, 'placar_estatico.html')
+    placar = Placar()
+    equipes = placar.get_ranking()
+    contexto = {'equipes': equipes}
+    return render(request, 'placar_estatico.html', contexto)

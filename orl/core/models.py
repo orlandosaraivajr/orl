@@ -135,3 +135,6 @@ class SubmissaoModel(models.Model):
         auto_now_add=False,
         auto_now=True
     )
+
+    def get_punicao(self):
+        return 10
