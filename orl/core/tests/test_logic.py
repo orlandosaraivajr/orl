@@ -56,11 +56,11 @@ class TestPlacar(TestCase):
         equipes = self.placar._get_lista_pontuacao_equipe(1)
         self.assertEqual(10, len(equipes))
         self.assertEqual(list, type(equipes))
-        self.assertEqual(equipes[0], (2, 35))
-        self.assertEqual(equipes[1], (2, 70))
+        self.assertEqual(equipes[0], (2, 30))
+        self.assertEqual(equipes[1], (2, 65))
         self.assertEqual(equipes[2], (0, 0))
         self.assertEqual(equipes[3], (0, 0))
-        self.assertEqual(equipes[4], (2, 40))
+        self.assertEqual(equipes[4], (2, 30))
         self.assertEqual(equipes[5], (0, 0))
         self.assertEqual(equipes[6], (0, 0))
         self.assertEqual(equipes[7], (0, 0))
@@ -76,7 +76,7 @@ class TestPlacar(TestCase):
         self.assertEqual(classificacao[0][2], 3)
         self.assertEqual(classificacao[0][3], 34)
         self.assertEqual(classificacao[1][2], 3)
-        self.assertEqual(classificacao[1][3], 145)
+        self.assertEqual(classificacao[1][3], 125)
         self.assertEqual(classificacao[2][2], 1)
         self.assertEqual(classificacao[2][3], 12)
         self.assertEqual(classificacao[3][2], 0)
@@ -101,7 +101,7 @@ class TestPlacar(TestCase):
 
     def test_Placar__sum_pontuacao_equipe_01(self):
         soma = self.placar._sum_pontuacao_equipe(1)
-        self.assertEqual(145, soma)
+        self.assertEqual(125, soma)
         self.assertEqual(int, type(soma))
 
     def test_Placar__sum_pontuacao_equipe_02(self):
@@ -121,12 +121,12 @@ class TestPlacar(TestCase):
 
     def test_Placar__pontuacao_por_equipe_problema_01(self):
         pontuacao = self.placar._pontuacao_por_equipe_problema(1, 1)
-        self.assertEqual((2, 35), pontuacao)
+        self.assertEqual((2, 30), pontuacao)
         self.assertEqual(tuple, type(pontuacao))
 
     def test_Placar__pontuacao_por_equipe_problema_02(self):
         pontuacao = self.placar._pontuacao_por_equipe_problema(1, 2)
-        self.assertEqual((2, 70), pontuacao)
+        self.assertEqual((2, 65), pontuacao)
         self.assertEqual(tuple, type(pontuacao))
 
     def test_Placar__get_nome_equipe(self):

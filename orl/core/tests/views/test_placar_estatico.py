@@ -47,9 +47,9 @@ class PlacarEstaticoGet_withData(TestCase):
     def test_html_template(self):
         tags = (
             ('Equipe ', 5),
-            ('145', 1),
+            ('125', 1),
             ('(3, 34)', 1),
-            ('(3, 145)', 1),
+            ('(3, 125)', 1),
             ('(1, 12)', 4),
             ('(0, 0)', 43),
             ('<table', 1),

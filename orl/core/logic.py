@@ -151,10 +151,5 @@ class Placar:
             punicao = qtd_envio_rejeitadas * SubmissaoModel().get_punicao()
             tempo_aceito = submissao_aceitas.aggregate(Sum('tempo'))
             tempo1 = tempo_aceito.get('tempo__sum', '0')
-            tempo_rejeitado = submissao_rejeitadas.aggregate(Sum('tempo'))
-            tempo2 = tempo_rejeitado.get('tempo__sum', '0')
-            try:
-                tempo_total = punicao + tempo1 + tempo2
-            except TypeError:
-                tempo_total = punicao + tempo1
+            tempo_total = punicao + tempo1
         return qtd_envio, tempo_total
