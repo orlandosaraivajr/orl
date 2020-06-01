@@ -88,9 +88,9 @@ class Placar:
     def _get_lista_pontuacao_equipe(self, equipe):
         inner_list = list()
         lista_problemas = self.get_lista_problemas()
-        for problema in lista_problemas:
+        for probl in lista_problemas:
             inner_list.append(
-                self._pontuacao_por_equipe_problema(equipe, problema)
+                self._pontuacao_por_equipe_problema_sem_punicao(equipe, probl)
             )
         return inner_list
 
@@ -152,4 +152,28 @@ class Placar:
             tempo_aceito = submissao_aceitas.aggregate(Sum('tempo'))
             tempo1 = tempo_aceito.get('tempo__sum', '0')
             tempo_total = punicao + tempo1
+        return qtd_envio, tempo_total
+
+    def _pontuacao_por_equipe_problema_sem_punicao(self, equipe, problema):
+        submissao_rejeitadas = SubmissaoModel.objects.filter(
+            equipe=equipe
+        ).filter(
+            problema=problema
+        ).filter(
+            status='RE'
+        )
+        submissao_aceitas = SubmissaoModel.objects.filter(
+            equipe=equipe
+        ).filter(
+            problema=problema
+        ).filter(
+            status='AC'
+        )
+        qtd_envio_rejeitadas = submissao_rejeitadas.count()
+        qtd_envio_aceitas = submissao_aceitas.count()
+        qtd_envio = qtd_envio_rejeitadas + qtd_envio_aceitas
+        tempo_total = 0
+        if qtd_envio_aceitas > 0:
+            tempo_aceito = submissao_aceitas.aggregate(Sum('tempo'))
+            tempo_total = tempo_aceito.get('tempo__sum', '0')
         return qtd_envio, tempo_total

@@ -56,11 +56,11 @@ class TestPlacar(TestCase):
         equipes = self.placar._get_lista_pontuacao_equipe(1)
         self.assertEqual(10, len(equipes))
         self.assertEqual(list, type(equipes))
-        self.assertEqual(equipes[0], (2, 30))
-        self.assertEqual(equipes[1], (2, 65))
+        self.assertEqual(equipes[0], (2, 20))
+        self.assertEqual(equipes[1], (2, 55))
         self.assertEqual(equipes[2], (0, 0))
         self.assertEqual(equipes[3], (0, 0))
-        self.assertEqual(equipes[4], (2, 30))
+        self.assertEqual(equipes[4], (2, 20))
         self.assertEqual(equipes[5], (0, 0))
         self.assertEqual(equipes[6], (0, 0))
         self.assertEqual(equipes[7], (0, 0))
@@ -127,6 +127,12 @@ class TestPlacar(TestCase):
     def test_Placar__pontuacao_por_equipe_problema_02(self):
         pontuacao = self.placar._pontuacao_por_equipe_problema(1, 2)
         self.assertEqual((2, 65), pontuacao)
+        self.assertEqual(tuple, type(pontuacao))
+
+    def test_Placar__pontuacao_por_equipe_sem_punicao_problema_01(self):
+        pontuacao = self.placar._pontuacao_por_equipe_problema_sem_punicao(
+            1, 1)
+        self.assertEqual((2, 20), pontuacao)
         self.assertEqual(tuple, type(pontuacao))
 
     def test_Placar__get_nome_equipe(self):
