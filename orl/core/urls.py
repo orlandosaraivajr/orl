@@ -15,4 +15,6 @@ urlpatterns = [
          views.remover_lancamento, name='remover_lancamento'),
     path('placar_estatico/',
          views.placar_estatico, name='placar_estatico'),
+    path('placar_dinamico/',
+         views.placar_dinamico, name='placar_dinamico'),
 ]

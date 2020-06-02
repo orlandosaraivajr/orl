@@ -2,8 +2,8 @@ from django.shortcuts import resolve_url as r
 from django.test import Client, TestCase
 from core.models import SubmissaoModel
 
-view_in_test = 'core:placar_estatico'
-template_get_case = 'placar_estatico.html'
+view_in_test = 'core:placar_dinamico'
+template_get_case = 'placar_dinamico.html'
 
 
 class PlacarEstaticoGet_withData(TestCase):
@@ -46,6 +46,8 @@ class PlacarEstaticoGet_withData(TestCase):
 
     def test_html_template(self):
         tags = (
+            ('<meta http-equiv="refresh"', 1),
+            ('content="5"', 1),
             ('Equipe ', 5),
             ('125', 1),
             ('(3, 34)', 1),

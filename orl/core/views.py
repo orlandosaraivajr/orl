@@ -78,3 +78,10 @@ def placar_estatico(request):
     equipes = placar.get_ranking()
     contexto = {'equipes': equipes}
     return render(request, 'placar_estatico.html', contexto)
+
+
+def placar_dinamico(request):
+    placar = Placar()
+    equipes = placar.get_ranking()
+    contexto = {'equipes': equipes}
+    return render(request, 'placar_dinamico.html', contexto)
